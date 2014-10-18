@@ -15,7 +15,17 @@ class User
     end
 
     def repositories
-      @repositories ||= octokit.repositories
+      @repositories ||= Hash[octokit.repositories.map do |data|
+        [data.full_name, Repository.new(data, self)]
+      end]
+    end
+
+    def repository full_name
+      @uniq_repos ||= {}
+
+      @uniq_repos[full_name] ||=
+      (@organization_repositories || {}).merge(nil: @repositories).values.inject {|h,mem| mem.merge! h }[full_name] ||
+      Repository.find(full_name, self)
     end
 
     def organizations
@@ -24,8 +34,17 @@ class User
 
     def organization_repositories
       @organization_repositories ||= Hash[organizations.map do |organization|
-        [organization, octokit.organization_repositories(organization.id, type: :member)]
+        [
+          organization,
+          Hash[octokit.organization_repositories(organization.id, type: :member).map do |data|
+            [data.full_name, Repository.new(data, self)]
+          end]
+        ]
       end]
+    end
+
+    def all_repositories
+      @all_repositories = organization_repositories.merge(nil: repositories).values.inject {|h,mem| mem.merge! h }
     end
 
   end
