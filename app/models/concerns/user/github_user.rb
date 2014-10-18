@@ -1,4 +1,4 @@
-class User
+class User < ActiveRecord::Base
   module GithubUser
     extend ActiveSupport::Concern
 
