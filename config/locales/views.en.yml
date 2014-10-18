@@ -1,5 +1,8 @@
 ---
 en:
+  application:
+    navigation:
+      toggle_nav: 'Toggle navigation'
   dashboard:
     index:
       projects: 'Your projects on GitHub:'

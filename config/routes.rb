@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/auth/:provider/callback' => 'sessions#create'
-  get '/signout' => 'sessions#destroy', as: :signout
+  get '/logout' => 'sessions#destroy', as: :logout
 
   get '/dashboard' => 'dashboard#index'
 

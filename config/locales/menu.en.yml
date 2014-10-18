@@ -1,0 +1,8 @@
+---
+en:
+  menu:
+    main:
+      dashboard: 'Dashboard'
+    user:
+      login: 'Sign in with GitHub'
+      logout: 'Log out'
