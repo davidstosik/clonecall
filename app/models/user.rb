@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   def attributes_with_auth auth
     {
       name: auth['info']['name'],
+      nickname: auth['info']['nickname'],
       email: auth['info']['email'],
       token: auth['credentials']['token'],
     }

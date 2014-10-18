@@ -8,5 +8,5 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
         span.icon-bar
       = link_to t('site_name'), root_path, class: 'navbar-brand'
     #navigation-collapsible.collapse.navbar-collapse
-      = render_navigation
-      = render_navigation context: :user
+      = render_navigation renderer: :bootstrap, expand_all: true
+      = render_navigation context: :user, renderer: :bootstrap, expand_all: true

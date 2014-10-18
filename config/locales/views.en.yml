@@ -3,13 +3,14 @@ en:
   application:
     navigation:
       toggle_nav: 'Toggle navigation'
+      logged_in: 'Logged in as %{name}'
   dashboard:
     index:
       projects: 'Your projects on GitHub:'
       title: 'Dashboard'
   welcome:
     index:
+      dashboard_link: 'Go to the dashboard.'
       site_name: 'CloneCall'
-      github_signin: 'Signin with GitHub'
+      github_signin: 'Sign in with GitHub!'
       welcome: 'Welcome %{name}!'
-      logout: 'Logout'
