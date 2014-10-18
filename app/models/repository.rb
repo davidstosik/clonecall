@@ -12,7 +12,7 @@ class Repository
   end
 
   def commit sha
-    @unique_commits[sha] ||= @commits.values.inject {|h,mem| mem.merge! h }[sha]
+    @unique_commits[sha] ||= @commits.values.inject({}){|mem,h| mem.merge! h }[sha]
     @unique_commits[sha] ||= Commit.find self, sha, @user
   end
 

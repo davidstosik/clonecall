@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
       @uniq_repos ||= {}
 
       @uniq_repos[full_name] ||=
-      (@organization_repositories || {}).merge(nil: @repositories).values.inject {|h,mem| mem.merge! h }[full_name] ||
+      (@organization_repositories || {}).merge(nil: @repositories || {}).values.inject({}){|mem,h| mem.merge! h }[full_name] ||
       Repository.find(full_name, self)
     end
 
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     end
 
     def all_repositories
-      @all_repositories = organization_repositories.merge(nil: repositories).values.inject {|h,mem| mem.merge! h }
+      @all_repositories = organization_repositories.merge(nil: repositories).values.inject({}){|mem,h| mem.merge! h }
     end
 
   end
