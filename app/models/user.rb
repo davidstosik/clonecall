@@ -2,12 +2,27 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth auth
     create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
-      user.email = auth["info"]["email"]
-      user.token = auth["info"]["token"]
+      attrs = attributes_with_auth(auth).merge(
+        provider: auth['provider'],
+        uid: auth['uid']
+      )
+      user.attributes = attrs
     end
   end
+
+  def update_with_auth auth
+    self.update attributes_with_auth auth
+  end
+
+  private
+
+  def attributes_with_auth auth
+    {
+      name: auth['info']['name'],
+      email: auth['info']['email'],
+      token: auth['credentials']['token'],
+    }
+  end
+
 
 end
