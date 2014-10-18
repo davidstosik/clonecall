@@ -3,6 +3,10 @@ module ApplicationHelper
     "/auth/#{provider}"
   end
 
+  def break_line_title title
+    title.sub(/(?<!^)[A-Z]/, '<br />\0').html_safe
+  end
+
   def user_label user
     return unless user
     "#{user.name} (#{user.nickname})"
