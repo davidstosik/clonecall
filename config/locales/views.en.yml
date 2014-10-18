@@ -1,0 +1,8 @@
+---
+en:
+  welcome:
+    index:
+      site_name: 'CloneCall'
+      github_signin: 'Signin with GitHub'
+      welcome: 'Welcome %{name}!'
+      logout: 'Logout'

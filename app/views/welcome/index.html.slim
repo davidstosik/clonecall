@@ -1,0 +1,7 @@
+h1 = t '.site_name'
+
+- if current_user.present?
+  p = t '.welcome', name: current_user.name
+  p = link_to t('.logout'), signout_path
+- else
+  = link_to t('.github_signin'), '/auth/github'
