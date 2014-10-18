@@ -1,5 +1,9 @@
 ---
 en:
+  dashboard:
+    index:
+      projects: 'Your projects on GitHub:'
+      title: 'Dashboard'
   welcome:
     index:
       site_name: 'CloneCall'

@@ -1,0 +1,6 @@
+h2 = t '.title'
+
+h3 = t '.projects'
+ul
+  - @repos.each do |repo|
+    li = link_to repo.name, repo.url
