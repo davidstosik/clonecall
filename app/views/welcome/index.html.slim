@@ -1,4 +1,6 @@
-h1 = t '.site_name'
+.page-header.text-center
+  = render 'logo', width: '4em'
+  h1.title = t('.site_name').sub(/(?<!^)[A-Z]/, '<br />\0').html_safe
 
 .container
   .col-md-6.col-md-push-3.text-center
@@ -8,4 +10,7 @@ h1 = t '.site_name'
         p.lead = t '.welcome', name: current_user.name
         p = link_to t('.dashboard_link'), dashboard_path
     - else
-      = link_to t('.github_signin'), auth_path(:github), class:" btn btn-lg btn-primary"
+      = link_to auth_path(:github), class: "btn btn-lg btn-primary" do
+        i.fa.fa-github
+        '&nbsp;
+        = t '.github_signin'

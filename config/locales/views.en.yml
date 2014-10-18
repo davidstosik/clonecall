@@ -3,7 +3,6 @@ en:
   application:
     navigation:
       toggle_nav: 'Toggle navigation'
-      logged_in: 'Logged in as %{name}'
   dashboard:
     index:
       projects: 'Your projects on GitHub:'

@@ -1,0 +1,17 @@
+.clonecall-logo
+  position: relative
+  display: inline-block
+  text-align: left
+  vertical-align: bottom
+  height: 3em
+  width: 1em
+
+  i
+    position: absolute
+    font-size: inherit
+
+    @for $i from 1 through 4
+      &:nth-of-type(#{$i})
+        top: ($i - 1)*5 / 23 * 100%
+        z-index: $i
+        opacity: ($i + 1)*0.2
