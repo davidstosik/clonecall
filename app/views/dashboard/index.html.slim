@@ -3,13 +3,13 @@ h2 = t '.title'
 h3 = t '.projects'
 ul
   li
-    h4 = link_to @github_user.name || @gihub_user.login, @github_user.html_url
+    h4 = link_to current_user.github_name, current_user.github_account.html_url
     ul
       - @repos[:user].each do |repo|
-        li = link_to repo.name, repo.html_url
+        li = link_to repo.full_name, repo.html_url
   - @repos[:orgs].each do |org, repos|
     li
       h4 = link_to org.name || org.login, org.html_url
       ul
         - repos.each do |repo|
-          li = link_to repo.name, repo.html_url
+          li = link_to repo.full_name, repo.html_url

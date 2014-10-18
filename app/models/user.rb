@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  include GithubUser
+
   def self.create_with_omniauth auth
     create! do |user|
       attrs = attributes_with_auth(auth).merge(
