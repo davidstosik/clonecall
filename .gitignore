@@ -16,7 +16,6 @@
 /tmp
 
 /config/database.yml
-/config/application.yml
 
 /.env
 /.bundle
@@ -25,3 +24,6 @@
 /public/system/*
 /public/uploads/*
 rerun.txt
+
+# Ignore application configuration
+/config/application.yml

@@ -40,4 +40,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'figaro'
+#gem 'slim-rails'
 gem 'omniauth-github'
