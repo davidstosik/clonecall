@@ -12,6 +12,6 @@ Thus, we developed **CloneCall**, as a proof-of-concept intended to show people 
 
 Team Kenzai doesn't approve of cheating, and exhorts Rails Rumble participants (or any developer) to use CloneCall at malevolent ends.
 
-CloneCall was developed by Team Kenzai, developers of [Kenzai.me](http://kenmzai.me).
+CloneCall was developed by Team Kenzai, developers of [Kenzai.me](https://kenzai.me).
 
 *CloneCall was not used in the process of submitting CloneCall to RailsRumble 2014.*
