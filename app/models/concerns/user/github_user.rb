@@ -14,37 +14,45 @@ class User < ActiveRecord::Base
       github_account.name || github_account.login
     end
 
-    def repositories
-      @repositories ||= Hash[octokit.repositories.map do |data|
-        [data.full_name, Repository.new(data, self)]
+    def organizations
+      @organizations ||= Hash[octokit.organizations.map do |org|
+        [org.login, org]
       end]
     end
 
     def repository full_name
       @uniq_repos ||= {}
 
-      @uniq_repos[full_name] ||=
-      (@organization_repositories || {}).merge(nil: @repositories || {}).values.inject({}){|mem,h| mem.merge! h }[full_name] ||
-      Repository.find(full_name, self)
+      all_cached_repos =
+        (@org_repos||{}).values.push(@user_repos||{}).inject({}) do |mem, h|
+          mem.merge! h
+        end
+
+      @uniq_repos[full_name] ||= all_cached_repos[full_name]
+      @uniq_repos[full_name] ||= Repository.new full_name, self
     end
 
-    def organizations
-      @organizations ||= octokit.organizations
+    def user_repositories
+      @user_repos ||= Hash[octokit.repositories.map do |data|
+        [data.full_name, Repository.new(data.full_name, self, data)]
+      end]
     end
 
-    def organization_repositories
-      @organization_repositories ||= Hash[organizations.map do |organization|
+    def org_repositories
+      @org_repos ||= Hash[organizations.map do |login, org|
         [
-          organization,
-          Hash[octokit.organization_repositories(organization.id, type: :member).map do |data|
-            [data.full_name, Repository.new(data, self)]
+          login,
+          Hash[octokit.organization_repositories(org.id, type: :member).map do |data|
+            [data.full_name, Repository.new(data.full_name, self, data)]
           end]
         ]
       end]
     end
 
-    def all_repositories
-      @all_repositories = organization_repositories.merge(nil: repositories).values.inject({}){|mem,h| mem.merge! h }
+    def repositories
+      @all_repos ||= org_repositories.values.push(user_repositories).inject({}) do |mem, h|
+        mem.merge! h
+      end
     end
 
   end

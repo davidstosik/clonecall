@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    @repos = current_user.all_repositories
+    @repos = current_user.repositories
   end
 end

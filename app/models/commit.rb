@@ -1,5 +1,4 @@
 class Commit
-  include OctokitObject
 
   attr_reader :repository
 

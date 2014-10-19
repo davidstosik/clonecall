@@ -3,4 +3,4 @@ h2 = t '.title'
 h3 = t '.projects'
 ul
   - @repos.each do |name, repo|
-    li = link_to name, repo.html_url
+    li = link_to name, repo.data.html_url
