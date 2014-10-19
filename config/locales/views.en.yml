@@ -34,7 +34,6 @@ en:
   welcome:
     index:
       dashboard_link: 'Go to the dashboard.'
-      site_name: 'CloneCall'
       github_signin: 'Sign in with GitHub!'
       welcome: 'Welcome %{name}!'
       lead: |
@@ -56,3 +55,9 @@ en:
         ## Genesis
 
         When we first heard of hackathons and the "no code before it starts" rule, we thought that it sounds hard to ensure, especially when the hackathon is remote. Thus, we developed CloneCall, as a proof-of-concept intended to show people can actually cheat in a way that will barely be detectable.
+
+    about:
+      rr: 'The initial release of CloneCall was developed in less that 48 hours at the occasion of the hackathon %{rr_link}.'
+      rr_link_label: 'Rails Rumble 2014'
+      team: 'It was developed by Team Kenzai, developers who work daily at %{kenzai_link}."'
+      kenzai_link_label: 'Kenzai.me'

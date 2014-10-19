@@ -76,5 +76,6 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.dom_class = 'nav navbar-nav navbar-left'
     primary.item :dashboard, t('menu.main.dashboard'), clone_call_jobs_path, if: proc { current_user }
+    primary.item :about, t('menu.main.about'), welcome_about_path
   end
 end
