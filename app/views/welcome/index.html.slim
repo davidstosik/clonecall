@@ -1,16 +1,32 @@
 .page-header.text-center
   = render 'logo', width: '4em'
-  h1.title = t('.site_name').sub(/(?<!^)[A-Z]/, '<br />\0').html_safe
+  h1.title = break_line_title t('.site_name')
 
 .container
-  .col-md-6.col-md-push-3.text-center
+  .row
+    .col-md-6.col-md-push-3.text-center
 
-    - if current_user.present?
-      .well
-        p.lead = t '.welcome', name: current_user.name
-        p = link_to t('.dashboard_link'), dashboard_path
-    - else
-      = link_to auth_path(:github), class: "btn btn-lg btn-primary" do
-        i.fa.fa-github-square
-        '&nbsp;
-        = t '.github_signin'
+      - if current_user.present?
+        .well
+          p.lead = t '.welcome', name: current_user.name
+          p = link_to t('.dashboard_link'), dashboard_path
+      - else
+        = link_to auth_path(:github), class: "btn btn-lg btn-primary btn-block" do
+          i.fa.fa-github-square
+          '&nbsp;
+          = t '.github_signin'
+
+
+  br
+  .row
+    .col-md-8.col-md-push-2.text-center
+      .well.lead = markdown t '.lead'
+
+  .row
+    .col-md-10.col-md-push-1.text-justify
+      div = markdown t '.genesis'
+
+  .row
+    .col-md-10.col-md-push-1.text-justify
+      em
+        div = markdown t '.disclaimer'

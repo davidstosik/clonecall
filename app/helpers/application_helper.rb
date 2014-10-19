@@ -7,6 +7,10 @@ module ApplicationHelper
     title.sub(/(?<!^)[A-Z]/, '<br />\0').html_safe
   end
 
+  def markdown(source)
+    Kramdown::Document.new(source).to_html.html_safe
+  end
+
   def user_label user
     return unless user
     "#{user.name} (#{user.nickname})"

@@ -13,3 +13,22 @@ en:
       site_name: 'CloneCall'
       github_signin: 'Sign in with GitHub!'
       welcome: 'Welcome %{name}!'
+      lead: |
+        CloneCall will help you cheat at any hackathon by allowing you to run all past commits of the repository of your choice to another repository, within dates you'll define.
+
+        Prepare your project weeks in advance, and when the hackathon actually starts, start a CloneCall, and see your repository getting filled with commits, ending just before the deadline!
+
+      disclaimer: |
+        ## Disclaimer
+        Above is the speach we would have if we were just trying to sell you this application. But this is not our goal.
+
+        CloneCall is not intended as a tool to cheat or use maliciously. It is only a proof-of-concept to show that cheating can happen.
+
+        There might still be one honest use of CloneCall, to our eyes: it might help you running commits to GitHub over and over again, and this way, test your own application that is tied to GitHub's systems.
+
+        Team Kenzai doesn't approve of cheating, and exhorts Rails Rumble participants (or any developer) to use CloneCall at malevolent ends.
+
+      genesis: |
+        ## Genesis
+
+        When we first heard of hackathons and the "no code before it starts" rule, we thought that it sounds hard to ensure, especially when the hackathon is remote. Thus, we developed CloneCall, as a proof-of-concept intended to show people can actually cheat in a way that will barely be detectable.
