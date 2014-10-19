@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :git_object_clones
+
   include GithubUser
 
   def self.create_with_omniauth auth
