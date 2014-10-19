@@ -8,7 +8,7 @@ class Repository
     @full_name = full_name
     @user = user
     @data = data
-    @unique_commits = {}
+    @git_objects = {}
     @commits = {}
   end
 
@@ -16,11 +16,22 @@ class Repository
     @data ||= user.octokit.repository full_name
   end
 
+  def git_object type, sha
+    type = type.to_sym
+    @git_objects[type] ||= {}
+
+    if type == :commit
+      @git_objects[type][sha] ||=
+        @commits.values.inject({}) do |mem, h|
+          mem.merge! h
+        end[sha]
+    end
+
+    @git_objects[type][sha] ||= GitObject.class_for(type).new self, sha
+  end
+
   def commit sha
-    @unique_commits[sha] ||= @commits.values.inject({}) do |mem, h|
-      mem.merge! h
-    end[sha]
-    @unique_commits[sha] ||= Commit.new self, sha, user
+    git_object 'commit', sha
   end
 
   def commits branch=nil

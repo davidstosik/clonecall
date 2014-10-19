@@ -1,14 +1,10 @@
-class Commit
-
-  attr_reader :repository
-
-  def self.find repo, sha, user
-    new user.octokit.commit(repo.full_name, sha), repo, user
+class Commit < GitObject
+  def tree
+    @tree ||= Tree.new repository, data.commit.tree.sha
   end
 
-  def initialize data, repo, user
-    super data, user
-    @repository = repo
+  def clone dest_repository, commit_at
+
   end
 
 end
