@@ -5,8 +5,15 @@ en:
       toggle_nav: 'Toggle navigation'
   dashboard:
     index:
-      projects: 'Your projects on GitHub:'
       title: 'Dashboard'
+      count:
+        zero: You have no CloneCalls processing right now.
+        one: You have one CloneCall processing right now.
+        other: You have %{count} CloneCalls processing right now.
+      start:
+        zero: 'Start one right now!'
+        one: 'Start another one right now!'
+        other: 'Start another one right now!'
   welcome:
     index:
       dashboard_link: 'Go to the dashboard.'

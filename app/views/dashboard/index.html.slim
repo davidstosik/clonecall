@@ -1,6 +1,6 @@
-h2 = t '.title'
-
-h3 = t '.projects'
-ul
-  - @repos.each do |name, repo|
-    li = link_to name, repo.data.html_url
+.container
+  .row
+    h2 = t '.title'
+    .col-md-6.col-md-push-3.text-center.well
+      p.lead = t '.count', count: @clonecalls.count
+      .btn.btn-primary.btn-lg.btn-block = t '.start', count: @clonecalls.count
