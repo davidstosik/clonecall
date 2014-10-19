@@ -9,7 +9,7 @@
       - if current_user.present?
         .well
           p.lead = t '.welcome', name: current_user.name
-          p = link_to t('.dashboard_link'), dashboard_path
+          p = link_to t('.dashboard_link'), clone_call_jobs_path
       - else
         = link_to auth_path(:github), class: "btn btn-lg btn-primary btn-block" do
           i.fa.fa-github-square

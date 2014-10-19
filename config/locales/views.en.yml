@@ -4,6 +4,16 @@ en:
     navigation:
       toggle_nav: 'Toggle navigation'
   clone_call_jobs:
+    index:
+      title: 'Dashboard'
+      count:
+        zero: You have no CloneCalls processing right now.
+        one: You have one CloneCall processing right now.
+        other: You have %{count} CloneCalls processing right now.
+      start:
+        zero: 'Start one right now!'
+        one: 'Start another one right now!'
+        other: 'Start another one right now!'
     new:
       title: 'Create a new CloneCall job'
       submit: 'Make the CloneCall!'
@@ -18,17 +28,6 @@ en:
         dst_repo: 'Note: the repository needs to be initialized with a first commit. It is best if there is nothing more.'
         end_at: 'For the time being, we only support and end date in the past. Be sure to leave some processing room between this value and the end of the hackathon.'
 
-  dashboard:
-    index:
-      title: 'Dashboard'
-      count:
-        zero: You have no CloneCalls processing right now.
-        one: You have one CloneCall processing right now.
-        other: You have %{count} CloneCalls processing right now.
-      start:
-        zero: 'Start one right now!'
-        one: 'Start another one right now!'
-        other: 'Start another one right now!'
   welcome:
     index:
       dashboard_link: 'Go to the dashboard.'

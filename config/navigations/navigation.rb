@@ -75,6 +75,6 @@ SimpleNavigation::Configuration.run do |navigation|
     # primary.auto_highlight = false
 
     primary.dom_class = 'nav navbar-nav navbar-left'
-    primary.item :dashboard, t('menu.main.dashboard'), dashboard_path, if: proc { current_user }
+    primary.item :dashboard, t('menu.main.dashboard'), clone_call_jobs_path, if: proc { current_user }
   end
 end

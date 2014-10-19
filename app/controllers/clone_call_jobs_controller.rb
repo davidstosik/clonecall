@@ -7,5 +7,9 @@ class CloneCallJobsController < ApplicationController
       [name, name]
     end
   end
+
+  def index
+    @clone_calls = []
+  end
   
 end

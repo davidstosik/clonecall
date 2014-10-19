@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       user = User.create_with_omniauth(auth)
     end
     session[:user_id] = user.id
-    redirect_to dashboard_path, notice: 'Signed in!'
+    redirect_to clone_call_jobs_path, notice: 'Signed in!'
   end
 
   def destroy

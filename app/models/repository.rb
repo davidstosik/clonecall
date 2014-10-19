@@ -68,7 +68,12 @@ class Repository
       start_at ||= now
       end_at   ||= now
     end
-    branch_name ||= data.default_branch
+
+    branch = begin
+      user.octokit.branch(full_name, branch_name || data.default_branch)
+    rescue Octokit::NotFound
+      user.octokit.branch(full_name, data.default_branch)
+    end
 
     commits = commits branch_name
 
