@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+  has_many :clone_call_jobs
   has_many :git_object_clones
 
   include GithubUser

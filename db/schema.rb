@@ -16,6 +16,17 @@ ActiveRecord::Schema.define(version: 20141019030027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "clone_call_jobs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "src_repo"
+    t.string   "dst_repo"
+    t.string   "branch"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "git_object_clones", force: true do |t|
     t.integer  "user_id"
     t.string   "git_type"
