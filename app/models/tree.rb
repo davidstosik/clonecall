@@ -5,8 +5,8 @@ class Tree < GitObject
   end
 
   def clone dest_repo
-    clone = existing_clone(dest_repo)
-    return clone if clone
+    existing_clone = existing_clone(dest_repo)
+    return existing_clone if existing_clone
 
     new_items = items.map do |item|
       object = repository.git_object item.type, item.sha
