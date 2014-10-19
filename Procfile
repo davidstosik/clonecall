@@ -1,2 +1,2 @@
-web: bundle exec rails server -p $PORT -E $RAILS_ENV
+web: bundle exec rails server -p $PORT
 worker: bundle exec sidekiq
