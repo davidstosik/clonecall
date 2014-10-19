@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth auth
     create! do |user|
-      attrs = attributes_with_auth(auth).merge(
+      attrs = user.send(:attributes_with_auth, auth).merge(
         provider: auth['provider'],
         uid: auth['uid']
       )
