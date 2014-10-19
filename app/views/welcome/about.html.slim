@@ -3,8 +3,12 @@
 .container
   .row
     .col-md-6.col-md-push-3.text-center
-      img src="https://d4nnn7wspfa3h.cloudfront.net/rails-rumble-badge-2014-sm.png"
-      p = t('.rr', rr_link: link_to(t('.rr_link_label'), 'http://railsrumble.com')).html_safe
+      - rr_url = 'http://railsrumble.com'
+      = link_to rr_url do
+        img src="https://d4nnn7wspfa3h.cloudfront.net/rails-rumble-badge-2014-sm.png"
+      p = t('.rr', rr_link: link_to(t('.rr_link_label'), rr_url)).html_safe
       br
-      img src="https://kenzai-production.s3.amazonaws.com/assets/kenzai-logo-sm-blue-2543848d83ac0a8906c4e77ad7dcd5bf.png"
-      p = t('.team', kenzai_link: link_to(t('.kenzai_link_label'), 'https://kenzai.me')).html_safe
+      - kenzai_url = 'https://kenzai.me'
+      = link_to kenzai_url do
+        img src="https://kenzai-production.s3.amazonaws.com/assets/kenzai-logo-sm-blue-2543848d83ac0a8906c4e77ad7dcd5bf.png"
+      p = t('.team', kenzai_link: link_to(t('.kenzai_link_label'), kenzai_url)).html_safe
