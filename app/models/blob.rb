@@ -1,6 +1,6 @@
 class Blob < GitObject
 
-  def clone dest_repo
+  def clonecall dest_repo
     existing_clone = existing_clone(dest_repo)
     return existing_clone if existing_clone
 

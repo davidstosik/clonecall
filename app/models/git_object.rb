@@ -48,8 +48,4 @@ class GitObject
     self.class.new dest_repo, mapping.dst_sha
   end
 
-  def clone 
-
-  end
-
 end

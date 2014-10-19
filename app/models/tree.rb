@@ -4,13 +4,13 @@ class Tree < GitObject
     @items ||= data.tree
   end
 
-  def clone dest_repo
+  def clonecall dest_repo
     existing_clone = existing_clone(dest_repo)
     return existing_clone if existing_clone
 
     new_items = items.map do |item|
       object = repository.git_object item.type, item.sha
-      new_object = object.clone dest_repo
+      new_object = object.clonecall dest_repo
 
       {
         path: item.path,

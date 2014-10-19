@@ -57,4 +57,38 @@ class Repository
     GitObject.class_for(git_type).new self, sha, data
   end
 
+  def branch_commit branch_name
+    object = user.octokit.branch(full_name, branch_name).object
+    Commit.new self, object.commit.sha
+  end
+
+  def clonecall dest_repo, branch_name=nil, start_at=nil, end_at=nil
+    if [start_at, end_at].any? && ![start_at, end_at].all?
+      now = Time.now
+      start_at ||= now
+      end_at   ||= now
+    end
+    branch_name ||= data.default_branch
+
+    commits = commits branch_name
+
+    interval = (end_at - start_at)/commits.count
+
+    time = start_at
+    commits.values.reverse_each do |commit|
+      commit.clonecall dest_repo, time
+      time += interval
+    end
+
+    branch = user.octokit.branch full_name, branch_name
+
+    ref_commit_clone = Commit.new(self, branch.commit.sha, branch.commit).clonecall(dest_repo, end_at)
+
+    if user.octokit.branch dest_repo.full_name, branch_name
+      user.octokit.update_branch(dest_repo.full_name, branch_name, ref_commit_clone.sha)
+    else
+      user.octokit.create_ref(dest_repo.full_name, branch_name, ref_commit_clone.sha)
+    end
+  end
+
 end
