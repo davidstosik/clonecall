@@ -2,7 +2,8 @@ class CloneCallJobsController < ApplicationController
   before_filter :authorize
 
   def index
-    @clone_calls = []
+    @jobs = current_user.clone_call_jobs.reverse
+    @running_count = current_user.clone_call_jobs.running.count
   end
 
   def new

@@ -1,0 +1,26 @@
+- job = clone_call_job # Shorten variable name.
+
+/= format_clone_call_job job
+p
+  = link_to_repository job.source_repository
+  '&nbsp;
+  i.fa.fa-arrow-circle-right
+  '&nbsp;
+  = link_to_repository job.dest_repository
+  '&nbsp;
+  = t '.branch', branch: job.branch
+
+  .progress
+    - case job.status
+    - when 'done'
+      - klass = 'progress-bar-success'
+      - val = 100
+      - label = 'Finished!'
+    - when 'running'
+      - klass = 'active'
+      - val = job.completion || '0'
+      - label = "#{val}%"
+    .progress-bar.progress-bar-striped class=klass role="progressbar" aria-valuenow=val aria-valuemin="0" aria-valuemax="100" style="width: #{val}%"
+      = label
+
+

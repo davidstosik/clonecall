@@ -2,5 +2,11 @@
   .row
     h2 = t '.title'
     .col-md-6.col-md-push-3.text-center.well
-      p.lead = t '.count', count: @clone_calls.count
-      = link_to t('.start', count: @clone_calls.count), new_clone_call_job_path, class: 'btn btn-primary btn-lg btn-block'
+      p.lead = t '.count', count: @running_count
+      = link_to t('.start', count: @running_count), new_clone_call_job_path, class: 'btn btn-primary btn-lg btn-block'
+
+  .row
+
+    .col-md-6.col-md-push-3
+      - @jobs.each do |job|
+        = render job

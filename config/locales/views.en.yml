@@ -4,6 +4,8 @@ en:
     navigation:
       toggle_nav: 'Toggle navigation'
   clone_call_jobs:
+    clone_call_job:
+      branch: '(branch: %{branch})'
     index:
       title: 'Dashboard'
       count:

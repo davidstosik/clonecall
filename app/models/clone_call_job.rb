@@ -6,6 +6,10 @@ class CloneCallJob < ActiveRecord::Base
 
   after_create :setup_worker
 
+  default_scope -> { order created_at: :asc }
+  scope :running, -> { where status: 'running' }
+  scope :done, -> { where status: 'done' }
+
   def setup_worker
     CloneCallWorker.perform_async id
   end
@@ -16,6 +20,14 @@ class CloneCallJob < ActiveRecord::Base
 
   def dest_repository
     user.repository dst_repo
+  end
+
+  def completion
+    user.git_object_clones.where(
+      git_type: 'commit',
+      src_repo: src_repo,
+      dst_repo: dst_repo,
+    ).count * 100 / total_commits
   end
 
   private
