@@ -10,7 +10,7 @@ class Commit < GitObject
     parents = nil #TODO: find them, get a clone
     new_tree = tree.clone dest_repo
 
-    options = Hash[[:author, :commiter].map do |key|
+    options = Hash[[:author, :committer].map do |key|
       user_data = data.commit.send(key).to_h
       user_data[:date] = time if time
       [key, user_data]
