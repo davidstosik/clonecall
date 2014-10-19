@@ -33,6 +33,7 @@ GEM
       execjs
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap_flash_messages (1.0.0)
     bootstrap_form (2.2.0)
     builder (3.2.2)
     celluloid (0.15.2)
@@ -189,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
+  bootstrap_flash_messages
   bootstrap_form
   coffee-rails (~> 4.0.0)
   figaro
