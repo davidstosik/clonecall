@@ -1,0 +1,9 @@
+---
+en:
+  flash_messages:
+    defaults: &defaults
+      error: "Error!"
+      info: "Info!"
+      success: "Success!"
+      warning: "Warning!"
+

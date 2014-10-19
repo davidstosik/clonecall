@@ -16,10 +16,10 @@ class CloneCallJobsController < ApplicationController
       .permit %w(src_repo branch dst_repo start_at end_at)
 
     if @clone_call_job.save
-      #flash! :success
+      flash! :success
       redirect_to clone_call_jobs_path
     else
-      #flash! :error
+      flash! :error
       render 'new'
     end
 
