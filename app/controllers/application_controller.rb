@@ -22,4 +22,12 @@ class ApplicationController < ActionController::Base
     !Rails.env.development? && params['screenshot'] != 'true'
   end
 
+  def authorize
+    unless current_user.present?
+      flash[:error] = "unauthorized access"
+      redirect_to root_path
+      false
+    end
+  end
+
 end
