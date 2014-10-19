@@ -4,6 +4,20 @@ class CloneCallJob < ActiveRecord::Base
   validates_presence_of :src_repo, :dst_repo, :start_at, :end_at, :user
   validate :dates_are_valid
 
+  after_create :setup_worker
+
+  def setup_worker
+    CloneCallWorker.perform_async id
+  end
+
+  def source_repository
+    user.repository src_repo
+  end
+
+  def dest_repository
+    user.repository dst_repo
+  end
+
   private
 
   def dates_are_valid
