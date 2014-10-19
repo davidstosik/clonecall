@@ -1,0 +1,13 @@
+.container
+  .row
+    h1.text-center = t '.title'
+  .row
+    .col-md-8.col-md-push-2
+      = bootstrap_form_for @clone_call_job do |f|
+        = f.select :src_repo, @repo_options, label: t('.src_repo')
+        = f.text_field :branch, label: t('.branch'), help: t('.help.branch')
+        = f.select :dst_repo, @repo_options, label: t('.dst_repo'), help: t('.help.dst_repo')
+        = f.datetime_select :start_at, label: t('.start_at')
+        = f.datetime_select :end_at, label: t('.end_at'), help: t('.help.end_at')
+        = f.submit t('.submit'), class: 'btn btn-primary btn-lg'
+        = link_to t('.back'), dashboard_path, class: 'btn btn-lg btn-default pull-right'

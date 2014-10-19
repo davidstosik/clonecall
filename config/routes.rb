@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/dashboard' => 'dashboard#index'
 
+  resources :clone_call_jobs, only: [:index, :new, :create], path: :job
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

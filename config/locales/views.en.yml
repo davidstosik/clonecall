@@ -3,6 +3,21 @@ en:
   application:
     navigation:
       toggle_nav: 'Toggle navigation'
+  clone_call_jobs:
+    new:
+      title: 'Create a new CloneCall job'
+      submit: 'Make the CloneCall!'
+      back: 'Go Back'
+      src_repo: 'Source repository'
+      dst_repo: 'Destination repository'
+      branch: 'Branch name'
+      start_at: 'Start time'
+      end_at: 'End time'
+      help:
+        branch: 'If it does not exist in the source repository, default branch will be used. If it does not exist in the destination repository, it will be created.'
+        dst_repo: 'Note: the repository needs to be initialized with a first commit. It is best if there is nothing more.'
+        end_at: 'For the time being, we only support and end date in the past. Be sure to leave some processing room between this value and the end of the hackathon.'
+
   dashboard:
     index:
       title: 'Dashboard'
