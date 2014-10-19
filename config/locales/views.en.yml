@@ -29,6 +29,7 @@ en:
         branch: 'If it does not exist in the source repository, default branch will be used. If it does not exist in the destination repository, it will be created.'
         dst_repo: 'Note: the repository needs to be initialized with a first commit. It is best if there is nothing more.'
         end_at: 'For the time being, we only support and end date in the past. Be sure to leave some processing room between this value and the end of the hackathon.'
+      warning: 'As this process will affect irreversibly your destination repository by adding commits, files into it, please make sure to double check your choices.'
 
   welcome:
     index:

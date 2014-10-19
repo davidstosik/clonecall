@@ -9,5 +9,6 @@
         = f.select :dst_repo, @repo_options, label: t('.dst_repo'), help: t('.help.dst_repo')
         = f.datetime_select :start_at, label: t('.start_at')
         = f.datetime_select :end_at, label: t('.end_at'), help: t('.help.end_at')
+        p.text-danger = t '.warning'
         = f.submit t('.submit'), class: 'btn btn-primary btn-lg'
         = link_to t('.back'), clone_call_jobs_path, class: 'btn btn-lg btn-default pull-right'
